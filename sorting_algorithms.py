@@ -103,4 +103,37 @@ def selection_sort(lst = list):
 
     return lst
     
-    
+
+# Merge two sorted lists 
+
+def merge_sorted(m1, m2):
+
+i = 0
+j = 0
+k = 0
+
+m = len(m1)
+n = len(m2)
+
+merged_array = array.array('i', (0,) * (m + n))
+
+while i < m and j < n:
+if m1[i] < m2[j]:
+    merged_array[k] = m1[i]
+    i += 1
+    k += 1
+else:
+    merged_array[k] = m2[j]
+    j += 1
+    k += 1
+
+while j < n:
+merged_array[k] = m2[j]
+k+=1
+j+=1
+while i < m:
+merged_array[k] = m1[i]
+k+=1
+i+=1
+
+return merged_array
