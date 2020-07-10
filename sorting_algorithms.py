@@ -4,8 +4,6 @@ import random
 import math
 
 # generate a random, unsorted list of numbers to practice sorting algorithms on 
-# print array to screen so it's possible to see what numbers are in there 
-
 
 def create_unsorted(length, highest_value):
     
@@ -16,9 +14,34 @@ def create_unsorted(length, highest_value):
         unsorted_array.append(i)
         
     return unsorted_array
+
+# generate a random, unsorted list of numbers *that contains no duplicates* to practice sorting algorithms on 
+
+def unsorted_noduplicates(length, highest_value):
     
-#create target number
+    unsorted = []
+
+    for i in range(0, length):
+        i = random.randint(1,highest_value)
+        
+        unsorted = list(set(unsorted))
+        
+        while len(unsorted)< length:
+            unsorted.append(i)
+            
+    return unsorted
+
+# swap vlaues 
+
+def swap(a, b):
+    a, b = b, a
+    
+    return a, b
+    
+# create target number
+
 target = random.randint(min(unsorted_array), max(unsorted_array))
+
 
 def check_integers(trgt, lst = list):
     for i in lst:
@@ -32,10 +55,11 @@ def check_integers(trgt, lst = list):
     #         print("Checking list by value at list location: ", target_yes, "is in the list at position", i)
             break
 
+        
 %%timeit
-
+ 
 check_integers(target, unsorted)
-
+ 
 %%timeit
 
 
